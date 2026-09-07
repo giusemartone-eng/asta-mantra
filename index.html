@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Asta Mantra</title>
+<!-- Nessuna risorsa esterna: la pagina funziona anche offline / senza rete -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Asta Mantra">
+<meta name="theme-color" content="#16211d">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAEb0lEQVR4nO3dQXKjMBRFUbkra8gsg6wggywsa8nCMsiOekCKctk8kBACva97ph0D1brIGLvE7fX9LQFL/l19AOgXcUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IL1Uvv7n++OQ40Ajn1+/u1972/2VPVkY2ZfIzrcVyvCyb7z2xEEZjnaMWnEclOGrdOzK4qAMd0UjWPtpJdVdD6OpypO5YOZY3BNl9GxxdPKLqboJRhn9qxkj7pBCIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAOmBNMGubayCNvHrRiHEULaN2/8ejhTJQHPXrZM5bGKSS+HG0WDt1kEqCX5C2XlU39qq9YWeO04Zt2lHIKSRmHPllbA5q5qZ+vj/i9REtjpyxLBrF+z9e33i8KSTUNUfOTYuawct5eaSrkDhxrI9KZRZFmwrTR5A4VsbjwCzyNxujjwhxrJfRdNex+7CPQ41BowmjaEfufXjHsVLGyUcSsg/vOBZd9WEy0ofYiXEcHT45qvLJSL1xjaPDMlaOwbQP1zhwAss4up02JmEmD784Oi9jEqMPvzhwmghx9DZtTPo8qiJmcdjNzA+8jt8sjmc9n6A9H1sO+zjQjlMcz3Ny/6fm8xEavbM4xYGTRfsN6W4PJ3T/c9IJiGN5no/3a+EdbN5WGl1w5PygvJLvZYdNHC3kDJLLQLYwdBxYd3t9f8v805HPoWAy35GZOSARByTigEQckIgDUtUd0jNvILa4CZb5+avFjq79r8s09MyRM0Ij30G3iaPRTej1sW90h94lOL54+xsqvpV9Rhx/qOGZzdsKzucUh+N3374XHMkrDpzMPo6eJ4+ejy2HWRxGc/Iir+M3i2NRnydon0dVJEIcaMQvDovVDSzWidjkF0fqvo8YZSTTOHAO1zi6nTzCTBvJN47UZR+RykjWcShX9dHDvHUs7zj6WVS6n4W2D+QdR1rt45xEVnZkXUYKEEe69LkWFz7N4wQR4khbfTR6tGzsMlKYONLWeByYyOamYpSRIsWR8p4DWpNIzsvDlJHi/YZ08dfCD+7/9cCnPUbKYhItjsnn12/+w4KP2uMh2+lKzDhS3hRy4I5CCnXN8ezCp0MGEHbmmM3jd+AsEruJWfw4ZvWVDNLEbKA4ZvdjPNRH01IjxnFv5LHfFPyCFDWIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCq4oj3hJF4asaoII4On4yEdZVPjjpgTTD6iKrsbYXl1dwVjWDxNQd9+Coduz0XpPThaMeo7fy0Qh9e9o3X7fX9rWavXI12ruY0ro0DgXGHFBJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQB6T/jpnFDxcayuwAAAABJRU5ErkJggg==">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAEb0lEQVR4nO3dQXKjMBRFUbkra8gsg6wggywsa8nCMsiOekCKctk8kBACva97ph0D1brIGLvE7fX9LQFL/l19AOgXcUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IL1Uvv7n++OQ40Ajn1+/u1972/2VPVkY2ZfIzrcVyvCyb7z2xEEZjnaMWnEclOGrdOzK4qAMd0UjWPtpJdVdD6OpypO5YOZY3BNl9GxxdPKLqboJRhn9qxkj7pBCIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAOmBNMGubayCNvHrRiHEULaN2/8ejhTJQHPXrZM5bGKSS+HG0WDt1kEqCX5C2XlU39qq9YWeO04Zt2lHIKSRmHPllbA5q5qZ+vj/i9REtjpyxLBrF+z9e33i8KSTUNUfOTYuawct5eaSrkDhxrI9KZRZFmwrTR5A4VsbjwCzyNxujjwhxrJfRdNex+7CPQ41BowmjaEfufXjHsVLGyUcSsg/vOBZd9WEy0ofYiXEcHT45qvLJSL1xjaPDMlaOwbQP1zhwAss4up02JmEmD784Oi9jEqMPvzhwmghx9DZtTPo8qiJmcdjNzA+8jt8sjmc9n6A9H1sO+zjQjlMcz3Ny/6fm8xEavbM4xYGTRfsN6W4PJ3T/c9IJiGN5no/3a+EdbN5WGl1w5PygvJLvZYdNHC3kDJLLQLYwdBxYd3t9f8v805HPoWAy35GZOSARByTigEQckIgDUtUd0jNvILa4CZb5+avFjq79r8s09MyRM0Ij30G3iaPRTej1sW90h94lOL54+xsqvpV9Rhx/qOGZzdsKzucUh+N3374XHMkrDpzMPo6eJ4+ejy2HWRxGc/Iir+M3i2NRnydon0dVJEIcaMQvDovVDSzWidjkF0fqvo8YZSTTOHAO1zi6nTzCTBvJN47UZR+RykjWcShX9dHDvHUs7zj6WVS6n4W2D+QdR1rt45xEVnZkXUYKEEe69LkWFz7N4wQR4khbfTR6tGzsMlKYONLWeByYyOamYpSRIsWR8p4DWpNIzsvDlJHi/YZ08dfCD+7/9cCnPUbKYhItjsnn12/+w4KP2uMh2+lKzDhS3hRy4I5CCnXN8ezCp0MGEHbmmM3jd+AsEruJWfw4ZvWVDNLEbKA4ZvdjPNRH01IjxnFv5LHfFPyCFDWIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCq4oj3hJF4asaoII4On4yEdZVPjjpgTTD6iKrsbYXl1dwVjWDxNQd9+Coduz0XpPThaMeo7fy0Qh9e9o3X7fX9rWavXI12ruY0ro0DgXGHFBJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQB6T/jpnFDxcayuwAAAABJRU5ErkJggg==">
+<style>
+  :root{
+    --bg:#16211d;
+    --panel:#1c2924;
+    --panel-2:#22302a;
+    --line:#354a41;
+    --ink:#edf3ee;
+    --ink-dim:#93a89d;
+    --gold:#e3b24c;
+    --pink:#e8506f;
+    --por:#d9a441;
+    --dif:#59a8c4;
+    --cen:#a3ce5c;
+    --att:#ea8156;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:14px;
+    line-height:1.45;
+  }
+  .num{font-family:'Oswald','Avenir Next','Futura',-apple-system,sans-serif;font-variant-numeric:tabular-nums;}
+  .shell{max-width:480px;margin:0 auto;padding-bottom:48px;min-height:100vh;}
+
+  /* ---- top / hero ---- */
+  .topbar{position:sticky;top:0;z-index:20;background:var(--bg);padding:14px 16px 10px;border-bottom:1px solid var(--line);}
+  .brand{font-family:'Oswald','Avenir Next','Futura',sans-serif;font-weight:600;font-size:15px;letter-spacing:.02em;color:var(--ink-dim);margin-bottom:10px;}
+  .brand b{color:var(--ink);font-weight:600;}
+  .brand .tag{color:var(--gold);}
+  .hero-row{display:flex;justify-content:space-between;align-items:flex-end;}
+  .hero-num{font-size:38px;font-weight:700;color:var(--gold);line-height:1;}
+  .hero-label{font-size:11px;color:var(--ink-dim);margin-bottom:2px;}
+  .hero-sub-num{font-size:18px;font-weight:600;color:var(--ink);text-align:right;}
+  .track{height:6px;background:var(--panel-2);border-radius:3px;overflow:hidden;margin-top:8px;}
+  .track .fill{height:100%;border-radius:3px;}
+  .track.small{height:4px;}
+  .hero-meta{margin-top:8px;font-size:12px;color:var(--ink-dim);}
+  .hero-meta b{color:var(--ink);}
+  .hero-meta.low b, .hero-meta.high b{color:var(--pink);}
+
+  /* ---- tabs ---- */
+  .tabs{display:flex;gap:0;position:sticky;top:96px;z-index:19;background:var(--bg);border-bottom:1px solid var(--line);padding:0 16px;}
+  .tab{flex:1;background:none;border:none;color:var(--ink-dim);font-family:'Oswald','Avenir Next','Futura',sans-serif;font-size:13px;font-weight:500;letter-spacing:.02em;padding:11px 4px;border-bottom:2px solid transparent;}
+  .tab.active{color:var(--ink);border-bottom-color:var(--gold);}
+
+  .panel{padding:14px 16px 6px;}
+  .hidden{display:none;}
+
+  /* ---- section / card ---- */
+  .section{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--line);border-radius:6px;padding:12px 14px;margin-bottom:12px;}
+  .section-title{font-family:'Oswald','Avenir Next','Futura',sans-serif;font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--ink);margin-bottom:8px;}
+  details.section{padding:0;}
+  details.section > summary{list-style:none;padding:12px 14px;cursor:pointer;font-family:'Oswald','Avenir Next','Futura',sans-serif;font-weight:600;font-size:13.5px;display:flex;justify-content:space-between;align-items:baseline;}
+  details.section > summary::-webkit-details-marker{display:none;}
+  details.section > summary::after{content:'▾';font-family:sans-serif;color:var(--ink-dim);margin-left:8px;font-size:11px;}
+  details.section[open] > summary::after{content:'▴';}
+  details.section .inner{padding:0 14px 12px;}
+  .amt-tag{font-family:'Oswald','Avenir Next','Futura',sans-serif;font-weight:500;color:var(--ink-dim);font-size:12.5px;}
+
+  .hint{font-size:12px;color:var(--ink-dim);margin:4px 0 8px;}
+
+  /* ---- fields ---- */
+  .field{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--line);}
+  .field:last-child{border-bottom:none;}
+  .field label{color:var(--ink-dim);font-size:13px;}
+  .field input{width:84px;text-align:right;}
+  input,select,textarea{
+    background:var(--panel-2);border:1px solid var(--line);color:var(--ink);
+    border-radius:5px;padding:8px 9px;font-size:14px;font-family:inherit;
+  }
+  input:focus,select:focus,textarea:focus{outline:1px solid var(--gold);border-color:var(--gold);}
+
+  /* ---- leader row (dotted list line) ---- */
+  .leader{display:flex;align-items:flex-end;gap:6px;padding:5px 0;}
+  .leader-label{white-space:nowrap;font-size:12.5px;}
+  .leader-label .code{color:var(--ink-dim);font-size:11px;margin-left:2px;}
+  .leader-fill{flex:1;border-bottom:1px dotted var(--line);margin-bottom:3px;min-width:10px;}
+  .leader-val{white-space:nowrap;font-size:12px;color:var(--ink-dim);}
+
+  /* ---- formation stepper rows ---- */
+  .rep-block{margin-bottom:10px;}
+  .rep-head{font-family:'Oswald','Avenir Next','Futura',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.02em;padding:4px 0;display:flex;justify-content:space-between;}
+  .rolestep2{padding:8px 0;border-bottom:1px dashed var(--line);}
+  .rolestep2:last-child{border-bottom:none;}
+  .rolestep-name{font-size:13px;margin-bottom:3px;}
+  .rolestep-name .code{color:var(--ink-dim);font-size:11px;margin-left:3px;}
+  .stepline{display:flex;align-items:center;justify-content:space-between;padding:2px 0;}
+  .stepline-label{font-size:11.5px;color:var(--ink-dim);}
+  .rolestep-total{font-size:11px;color:var(--ink-dim);text-align:right;margin-top:2px;}
+  .stepper{display:flex;align-items:center;gap:8px;}
+  .stepper button{width:26px;height:26px;border-radius:5px;border:1px solid var(--line);background:var(--panel-2);color:var(--ink);font-size:15px;line-height:1;padding:0;}
+  .stepper button:disabled{opacity:.35;}
+  .stepper .val{min-width:16px;text-align:center;font-family:'Oswald','Avenir Next','Futura',sans-serif;font-weight:600;}
+
+  .check{margin-top:10px;font-size:12px;padding:8px 10px;border-radius:5px;background:var(--panel-2);}
+  .check.ok{color:var(--cen);}
+  .check.warn{color:var(--gold);}
+
+  /* ---- pct rows ---- */
+  .pctrow{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line);}
+  .pctrow:last-child{border-bottom:none;}
+  .pctrow .pctlabel{flex:1;font-size:13px;}
+  .pctrow input{width:52px;text-align:right;}
+  .pctrow .pctcredits{width:70px;text-align:right;font-size:12px;color:var(--ink-dim);}
+  .pctsum{margin-top:8px;font-size:12px;display:flex;align-items:center;gap:8px;}
+  .pctsum.ok{color:var(--cen);}
+  .pctsum.warn{color:var(--pink);}
+
+  .rbrow{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--line);}
+  .rbrow:last-child{border-bottom:none;}
+  .rbrow-name{font-size:12.5px;}
+  .rbrow-name .code{color:var(--ink-dim);font-size:11px;}
+  .rbrow-slots{color:var(--ink-dim);font-size:11px;}
+  .rbrow-inputs{display:flex;align-items:center;gap:6px;}
+  .rbrow-inputs input{width:58px;text-align:right;}
+
+  /* ---- buttons ---- */
+  .btn{border-radius:5px;font-family:'Oswald','Avenir Next','Futura',sans-serif;font-weight:500;font-size:13px;letter-spacing:.01em;padding:9px 14px;border:1px solid transparent;width:100%;margin-top:4px;}
+  .btn-solid{background:var(--gold);color:#241a05;border-color:var(--gold);}
+  .btn-line{background:none;color:var(--ink);border-color:var(--line);}
+  .btn-danger{background:var(--pink);color:#2a0510;border-color:var(--pink);}
+  .btn-danger-line{background:none;color:var(--pink);border-color:var(--pink);}
+  .btn-mini{width:auto;padding:4px 8px;font-size:11px;margin:0;border-radius:4px;background:none;border:1px solid var(--line);color:var(--ink-dim);}
+  .btn-icon{width:auto;background:none;border:none;color:var(--ink-dim);font-size:14px;padding:2px 6px;margin:0;}
+
+  /* ---- add-player form ---- */
+  .addform input[type=text],.addform input[type=number]{width:100%;margin-bottom:8px;}
+  .addrow{display:flex;gap:8px;margin-bottom:8px;}
+  .addrow > *{flex:1;min-width:0;}
+
+  /* ---- role progress rows (asta) ---- */
+  .rolebar{margin:9px 0;}
+  .rolebar-amt{text-align:right;font-size:11px;color:var(--ink-dim);margin-top:2px;}
+
+  /* ---- purchase rows ---- */
+  .prow{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--line);}
+  .prow:last-child{border-bottom:none;}
+  .prow-main{font-size:13px;display:flex;align-items:center;gap:6px;min-width:0;}
+  .prow-main .name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .code-chip{font-family:'Oswald','Avenir Next','Futura',sans-serif;font-size:10.5px;font-weight:600;background:var(--panel-2);border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--ink-dim);}
+  .slot-chip{font-size:10px;font-weight:600;border-radius:4px;padding:1px 5px;}
+  .slot-chip.tit{background:rgba(163,206,92,.18);color:var(--cen);}
+  .slot-chip.ris{background:rgba(147,168,157,.18);color:var(--ink-dim);}
+  .prow-right{display:flex;align-items:center;gap:2px;flex-shrink:0;}
+  .prow-price{font-family:'Oswald','Avenir Next','Futura',sans-serif;font-weight:600;font-size:12.5px;margin-right:4px;}
+  .prow.editing{flex-direction:column;align-items:stretch;gap:6px;}
+
+  .confirm-box{font-size:12.5px;background:var(--panel-2);border:1px solid var(--pink);border-radius:6px;padding:10px;}
+  .confirm-actions{display:flex;gap:8px;margin-top:8px;}
+  .confirm-actions .btn{margin-top:0;}
+
+  .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,12px);background:var(--panel-2);border:1px solid var(--line);color:var(--ink);padding:9px 16px;border-radius:20px;font-size:12.5px;opacity:0;pointer-events:none;transition:opacity .18s ease, transform .18s ease;z-index:50;}
+  .toast.show{opacity:1;transform:translate(-50%,0);}
+
+  .export-area{width:100%;height:170px;margin-top:8px;font-family:'Oswald','Avenir Next',monospace;font-size:11.5px;white-space:pre;}
+</style>
+</head>
+<body>
+<div class="shell" id="app">
+
+  <div class="topbar">
+    <div class="brand"><b>Asta Fantacalcio</b> <span class="tag">MANTRA</span></div>
+    <div id="header-summary"></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab" id="tabbtn-setup" onclick="switchTab('setup')">Setup</button>
+    <button class="tab" id="tabbtn-asta" onclick="switchTab('asta')">Asta</button>
+    <button class="tab" id="tabbtn-rosa" onclick="switchTab('rosa')">Rosa</button>
+  </div>
+
+  <div class="panel tab-panel" id="tab-setup"></div>
+  <div class="panel tab-panel" id="tab-asta"></div>
+  <div class="panel tab-panel" id="tab-rosa"></div>
+
+  <div class="toast" id="toast"></div>
+</div>
+
+<script>
+/* ============================ COSTANTI ============================ */
+var ROLES = [
+  {code:'Por', name:'Portiere',            reparto:'POR'},
+  {code:'Dc',  name:'Difensore Centrale',  reparto:'DIF'},
+  {code:'Dd',  name:'Difensore Destro',    reparto:'DIF'},
+  {code:'Ds',  name:'Difensore Sinistro',  reparto:'DIF'},
+  {code:'B',   name:'Braccetto',           reparto:'DIF'},
+  {code:'E',   name:'Esterno',             reparto:'DIF'},
+  {code:'M',   name:'Mediano',             reparto:'CEN'},
+  {code:'C',   name:'Centrocampista',      reparto:'CEN'},
+  {code:'W',   name:'Ala',                 reparto:'CEN'},
+  {code:'T',   name:'Trequartista',        reparto:'CEN'},
+  {code:'A',   name:'Attaccante',          reparto:'ATT'},
+  {code:'Pc',  name:'Prima Punta',         reparto:'ATT'}
+];
+var REPARTI = {
+  POR:{name:'Portieri',        color:'var(--por)'},
+  DIF:{name:'Difensori',       color:'var(--dif)'},
+  CEN:{name:'Centrocampisti',  color:'var(--cen)'},
+  ATT:{name:'Attaccanti',      color:'var(--att)'}
+};
+var REPARTI_ORDER = ['POR','DIF','CEN','ATT'];
+
+/* gli 11 schemi ufficiali Mantra (fonte: regolamento Fantacalcio.it,
+   confermato su più annate). "starters" è la ripartizione di default
+   suggerita (comunque modificabile a mano), "roles" è l'insieme
+   COMPLETO dei ruoli ammessi da quello schema, comprese le posizioni
+   a doppia funzione (es. Dc/B, W/A, M/C, T/A): tutti i ruoli elencati
+   vengono mostrati nel modulo, anche quelli a 0, cosi si può spostare
+   liberamente titolari/riserve tra le alternative senza doverli
+   aggiungere a mano */
+var FORMATIONS = [
+  {id:'343',  label:'3-4-3',
+   starters:{Por:1, Dc:3, E:2, M:1, C:1, W:2, Pc:1},
+   roles:['Por','Dc','B','E','M','C','W','A','Pc']},
+  {id:'3412', label:'3-4-1-2',
+   starters:{Por:1, Dc:3, E:2, M:1, C:1, T:1, A:1, Pc:1},
+   roles:['Por','Dc','B','E','M','C','T','A','Pc']},
+  {id:'3421', label:'3-4-2-1',
+   starters:{Por:1, Dc:3, E:2, M:1, C:1, T:2, Pc:1},
+   roles:['Por','Dc','E','W','M','C','T','A','Pc']},
+  {id:'352',  label:'3-5-2',
+   starters:{Por:1, Dc:3, E:2, M:2, C:1, A:1, Pc:1},
+   roles:['Por','Dc','E','W','M','C','A','Pc']},
+  {id:'3511', label:'3-5-1-1',
+   starters:{Por:1, Dc:3, E:2, M:2, C:1, T:1, Pc:1},
+   roles:['Por','Dc','E','W','M','C','T','A','Pc']},
+  {id:'433',  label:'4-3-3',
+   starters:{Por:1, Dd:1, Dc:2, Ds:1, M:1, C:2, W:2, Pc:1},
+   roles:['Por','Dd','Dc','Ds','M','C','W','A','Pc']},
+  {id:'4312', label:'4-3-1-2',
+   starters:{Por:1, Dd:1, Dc:2, Ds:1, M:1, C:2, T:1, A:1, Pc:1},
+   roles:['Por','Dd','Dc','Ds','M','C','T','A','Pc']},
+  {id:'442',  label:'4-4-2',
+   starters:{Por:1, Dd:1, Dc:2, Ds:1, E:2, M:1, C:1, A:1, Pc:1},
+   roles:['Por','Dd','Dc','Ds','E','W','M','C','A','Pc']},
+  {id:'4141', label:'4-1-4-1',
+   starters:{Por:1, Dd:1, Dc:2, Ds:1, M:1, W:2, T:2, Pc:1},
+   roles:['Por','Dd','Dc','Ds','M','E','W','C','T','A','Pc']},
+  {id:'4411', label:'4-4-1-1',
+   starters:{Por:1, Dd:1, Dc:2, Ds:1, E:2, M:1, C:1, T:1, Pc:1},
+   roles:['Por','Dd','Dc','Ds','E','W','M','C','T','A','Pc']},
+  {id:'4231', label:'4-2-3-1',
+   starters:{Por:1, Dd:1, Dc:2, Ds:1, M:1, C:1, W:1, T:1, A:1, Pc:1},
+   roles:['Por','Dd','Dc','Ds','M','C','W','T','A','Pc']}
+];
+function formationById(id){
+  for(var i=0;i<FORMATIONS.length;i++){ if(FORMATIONS[i].id===id) return FORMATIONS[i]; }
+  return null;
+}
+
+function roleByCode(code){
+  for(var i=0;i<ROLES.length;i++){ if(ROLES[i].code===code) return ROLES[i]; }
+  return null;
+}
+function rolesByReparto(rep){
+  return ROLES.filter(function(r){ return r.reparto===rep; });
+}
+
+/* ============================ STATO ============================ */
+function defaultConfig(){
+  var starters = {Por:1, Dc:0, Dd:0, Ds:0, B:0, E:0, M:0, C:0, W:0, T:0, A:0, Pc:0};
+  Object.assign(starters, FORMATIONS[0].starters);
+  var reserves = {};
+  ROLES.forEach(function(r){ reserves[r.code] = reservesFor(starters[r.code]||0); });
+  var rolePct = computeDefaultRolePct(starters, reserves);
+  return {
+    totalCredits: 500,
+    minPlayers: 25,
+    maxPlayers: 30,
+    formationId: FORMATIONS[0].id,
+    visibleRoles: FORMATIONS[0].roles.slice(),
+    starters: starters,
+    reserves: reserves,
+    rolePct: rolePct
+  };
+}
+function defaultState(){
+  return { config: defaultConfig(), purchases: [] };
+}
+
+var state = defaultState();
+var activeTab = 'setup';
+var editingId = null;
+var showExport = false;
+var showBackupExport = false;
+var showBackupImport = false;
+var confirmClear = false;
+var confirmResetAll = false;
+var hadSavedConfig = false;
+
+/* ============================ STORAGE ============================
+   Doppio livello: se il file gira dentro Claude usa lo storage
+   persistente di Claude (window.storage). Se gira da solo — file
+   salvato sul telefono, aggiunto alla Home, aperto offline — usa il
+   localStorage del browser, così funziona comunque senza rete e
+   senza dipendere da Claude. */
+function claudeStorageAvailable(){
+  try{ return typeof window.storage !== 'undefined' && window.storage && typeof window.storage.get === 'function'; }
+  catch(e){ return false; }
+}
+var LS_CONFIG_KEY = 'fantamantra_config';
+var LS_PURCHASES_KEY = 'fantamantra_purchases';
+
+async function loadState(){
+  var rawConfig = null, rawPurchases = null;
+  if(claudeStorageAvailable()){
+    try{ var c = await window.storage.get('config', false); if(c && c.value) rawConfig = c.value; }catch(e){}
+    try{ var p = await window.storage.get('purchases', false); if(p && p.value) rawPurchases = p.value; }catch(e){}
+  } else {
+    try{ rawConfig = localStorage.getItem(LS_CONFIG_KEY); }catch(e){}
+    try{ rawPurchases = localStorage.getItem(LS_PURCHASES_KEY); }catch(e){}
+  }
+  if(rawConfig){
+    try{
+      var parsed = JSON.parse(rawConfig);
+      var base = defaultConfig();
+      state.config = Object.assign(base, parsed);
+      state.config.starters = Object.assign({}, base.starters, parsed.starters || {});
+      state.config.reserves = Object.assign({}, base.reserves, parsed.reserves || {});
+      state.config.rolePct = Object.assign({}, base.rolePct, parsed.rolePct || {});
+      state.config.formationId = (parsed.formationId!=null) ? parsed.formationId : 'custom';
+      if(parsed.visibleRoles && parsed.visibleRoles.length){
+        state.config.visibleRoles = parsed.visibleRoles;
+      } else {
+        var f = formationById(state.config.formationId);
+        state.config.visibleRoles = f ? f.roles.slice() : ROLES.map(function(r){ return r.code; });
+      }
+      hadSavedConfig = true;
+    }catch(e){ /* config salvata illeggibile, resto sui default */ }
+  }
+  if(rawPurchases){
+    try{ state.purchases = JSON.parse(rawPurchases); }catch(e){ /* rosa salvata illeggibile */ }
+  }
+  activeTab = hadSavedConfig ? 'asta' : 'setup';
+  renderAll();
+  switchTab(activeTab);
+}
+async function saveConfig(){
+  var json = JSON.stringify(state.config);
+  if(claudeStorageAvailable()){
+    try{ await window.storage.set('config', json, false); return; }
+    catch(e){ console.error('salvataggio config (Claude) fallito', e); }
+  }
+  try{ localStorage.setItem(LS_CONFIG_KEY, json); }
+  catch(e){ console.error('salvataggio config (locale) fallito', e); }
+}
+async function savePurchases(){
+  var json = JSON.stringify(state.purchases);
+  if(claudeStorageAvailable()){
+    try{ await window.storage.set('purchases', json, false); return; }
+    catch(e){ console.error('salvataggio rosa (Claude) fallito', e); }
+  }
+  try{ localStorage.setItem(LS_PURCHASES_KEY, json); }
+  catch(e){ console.error('salvataggio rosa (locale) fallito', e); }
+}
+
+/* ============================ CALCOLI ============================ */
+function reservesFor(n){ return n>0 ? n+1 : 0; }
+
+function computeRoleSlots(config){
+  var out = {};
+  ROLES.forEach(function(r){
+    var n = config.starters[r.code] || 0;
+    var res = (config.reserves && config.reserves[r.code]!=null) ? config.reserves[r.code] : reservesFor(n);
+    out[r.code] = {starters:n, reserves:res, total:n+res};
+  });
+  return out;
+}
+
+/* distribuzione automatica del budget tra i ruoli USATI (titolari>0),
+   proporzionale ai posti (titolari+riserve) di ciascun ruolo */
+function computeDefaultRolePct(starters, reserves){
+  var slotsByRole = {};
+  var totalUsedSlots = 0;
+  ROLES.forEach(function(r){
+    var n = starters[r.code] || 0;
+    var res = (reserves && reserves[r.code]!=null) ? reserves[r.code] : reservesFor(n);
+    slotsByRole[r.code] = n + res;
+    if(n>0) totalUsedSlots += slotsByRole[r.code];
+  });
+  var pct = {};
+  ROLES.forEach(function(r){
+    var n = starters[r.code] || 0;
+    pct[r.code] = (n>0 && totalUsedSlots>0) ? Math.round(100*slotsByRole[r.code]/totalUsedSlots) : 0;
+  });
+  return pct;
+}
+
+function computeBudgets(config){
+  var totalCredits = config.totalCredits;
+  var roleBudget = {};
+  ROLES.forEach(function(r){
+    var pct = (config.rolePct && config.rolePct[r.code]) || 0;
+    roleBudget[r.code] = Math.round(totalCredits * pct/100);
+  });
+  return {roleBudget:roleBudget};
+}
+
+function computeSpent(purchases){
+  var byRole = {}; var byReparto = {}; var total = 0;
+  ROLES.forEach(function(r){ byRole[r.code]=0; });
+  REPARTI_ORDER.forEach(function(rep){ byReparto[rep]=0; });
+  purchases.forEach(function(p){
+    byRole[p.role] = (byRole[p.role]||0) + p.price;
+    var role = roleByCode(p.role);
+    if(role){ byReparto[role.reparto] += p.price; }
+    total += p.price;
+  });
+  return {byRole:byRole, byReparto:byReparto, total:total};
+}
+
+function computeFilled(purchases){
+  var out = {};
+  ROLES.forEach(function(r){ out[r.code] = {titolare:0, riserva:0}; });
+  purchases.forEach(function(p){
+    if(out[p.role]) out[p.role][p.slot] = (out[p.role][p.slot]||0) + 1;
+  });
+  return out;
+}
+
+/* ============================ UTIL ============================ */
+function esc(s){
+  return String(s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+function showToast(msg){
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 2000);
+}
+
+/* ============================ RENDER: HEADER ============================ */
+function buildHeaderSummary(){
+  var spent = computeSpent(state.purchases);
+  var remaining = state.config.totalCredits - spent.total;
+  var pct = state.config.totalCredits>0 ? Math.min(100, Math.round(spent.total/state.config.totalCredits*100)) : 0;
+  var count = state.purchases.length;
+  var min = state.config.minPlayers, max = state.config.maxPlayers;
+  var rangeClass = '';
+  if(count < min) rangeClass = 'low';
+  else if(count > max) rangeClass = 'high';
+  var barColor = remaining < 0 ? 'var(--pink)' : 'var(--gold)';
+
+  var html = '';
+  html += '<div class="hero-row">';
+  html += '  <div><div class="hero-label">Crediti rimasti</div><div class="hero-num num">'+remaining+'</div></div>';
+  html += '  <div><div class="hero-label" style="text-align:right">Spesi</div><div class="hero-sub-num num">'+spent.total+' / '+state.config.totalCredits+'</div></div>';
+  html += '</div>';
+  html += '<div class="track"><div class="fill" style="width:'+pct+'%;background:'+barColor+'"></div></div>';
+  html += '<div class="hero-meta '+rangeClass+'">Giocatori: <b>'+count+'</b> &middot; range '+min+'&ndash;'+max+'</div>';
+  return html;
+}
+
+/* ============================ RENDER: SETUP ============================ */
+function rolestepRow(code){
+  var role = roleByCode(code);
+  var n = state.config.starters[code] || 0;
+  var res = (state.config.reserves && state.config.reserves[code]!=null) ? state.config.reserves[code] : reservesFor(n);
+  var html = '';
+  html += '<div class="rolestep2">';
+  html += '  <div class="rolestep-name">'+esc(role.name)+' <span class="code">'+role.code+'</span></div>';
+  html += '  <div class="stepline">';
+  html += '    <span class="stepline-label">Titolari</span>';
+  html += '    <div class="stepper">';
+  html += '      <button onclick="adjustStarter(\''+code+'\',-1)" '+(n<=0?'disabled':'')+'>&minus;</button>';
+  html += '      <span class="val num">'+n+'</span>';
+  html += '      <button onclick="adjustStarter(\''+code+'\',1)">+</button>';
+  html += '    </div>';
+  html += '  </div>';
+  html += '  <div class="stepline">';
+  html += '    <span class="stepline-label">Riserve</span>';
+  html += '    <div class="stepper">';
+  html += '      <button onclick="adjustReserve(\''+code+'\',-1)" '+(res<=0?'disabled':'')+'>&minus;</button>';
+  html += '      <span class="val num">'+res+'</span>';
+  html += '      <button onclick="adjustReserve(\''+code+'\',1)">+</button>';
+  html += '    </div>';
+  html += '  </div>';
+  html += '  <div class="rolestep-total">'+(n+res)+' posti totali</div>';
+  html += '</div>';
+  return html;
+}
+
+function buildModuloCard(){
+  var current = state.config.formationId || 'custom';
+  var opts = FORMATIONS.map(function(f){
+    return '<option value="'+f.id+'" '+(current===f.id?'selected':'')+'>'+f.label+'</option>';
+  }).join('');
+  if(current==='custom'){
+    opts += '<option value="custom" selected>Personalizzato</option>';
+  }
+  var html = '';
+  html += '<div class="section">';
+  html += '  <div class="section-title">Modulo Mantra</div>';
+  html += '  <select style="width:100%" onchange="setFormation(this.value)">'+opts+'</select>';
+  html += '  <div class="hint">Sceglierne uno imposta titolari, riserve e budget per ruolo suggeriti. Puoi cambiarlo anche ad asta iniziata: slot e budget si ricalcolano subito, la rosa già acquistata resta invariata.</div>';
+  html += '</div>';
+  return html;
+}
+
+function buildFormationCard(){
+  var visible = state.config.visibleRoles || ROLES.map(function(r){ return r.code; });
+  var totalTitolari = 0;
+  var blocks = '';
+  REPARTI_ORDER.forEach(function(rep){
+    var roles = rolesByReparto(rep).filter(function(r){ return visible.indexOf(r.code)!==-1; });
+    if(roles.length===0) return;
+    var sub = 0;
+    var rows = '';
+    roles.forEach(function(r){
+      sub += (state.config.starters[r.code]||0);
+      rows += rolestepRow(r.code);
+    });
+    totalTitolari += sub;
+    blocks += '<div class="rep-block">';
+    blocks += '  <div class="rep-head" style="color:'+REPARTI[rep].color+'">'+REPARTI[rep].name+' <span>'+sub+' titolari</span></div>';
+    blocks += rows;
+    blocks += '</div>';
+  });
+  var ok = totalTitolari===11;
+  var checkText = ok ? 'Titolari totali: '+totalTitolari+' / 11 — modulo completo' : 'Titolari totali: '+totalTitolari+' / 11 — una formazione titolare Mantra ne prevede 11 (1 portiere + 10 di movimento)';
+
+  var html = '';
+  html += '<div class="section">';
+  html += '  <div class="section-title">Ruoli del modulo — titolari e riserve</div>';
+  html += '  <div class="hint">Sono mostrati tutti i ruoli previsti da questo modulo, comprese le posizioni a doppia funzione (es. W/A, Dc/B, M/C): sposta pure titolari o riserve da un ruolo all\'altro tra le alternative.</div>';
+  html += blocks;
+  html += '  <div class="check '+(ok?'ok':'warn')+'">'+checkText+'</div>';
+  html += '  <button class="btn btn-line" onclick="resetFormationDefault()">Ripristina modulo di default (3-4-3)</button>';
+  html += '</div>';
+  return html;
+}
+
+function buildRoleBudgetCard(){
+  var b = computeBudgets(state.config);
+  var sumPct = 0;
+  var sumCredits = 0;
+  var rows = '';
+  ROLES.forEach(function(r){
+    if((state.config.starters[r.code]||0)<=0) return;
+    var pct = state.config.rolePct[r.code] || 0;
+    sumPct += pct;
+    sumCredits += b.roleBudget[r.code];
+    rows += '<div class="pctrow">';
+    rows += '  <div class="pctlabel"><span class="code-chip">'+r.code+'</span> '+esc(r.name)+'</div>';
+    rows += '  <input type="number" min="0" max="100" value="'+pct+'" onchange="setRolePct(\''+r.code+'\', this.value)"> %';
+    rows += '  <div class="pctcredits num">'+b.roleBudget[r.code]+' cr</div>';
+    rows += '</div>';
+  });
+  var total = state.config.totalCredits;
+  var diff = total - sumCredits;
+  var diffText;
+  if(diff===0){ diffText = 'budget interamente assegnato'; }
+  else if(diff>0){ diffText = 'mancano '+diff+' cr da assegnare'; }
+  else { diffText = (-diff)+' cr in eccesso rispetto al totale'; }
+  var html = '';
+  html += '<div class="section">';
+  html += '  <div class="section-title">Budget per ruolo Mantra</div>';
+  html += '  <div class="hint">Percentuale del budget totale da destinare a ciascun ruolo del modulo selezionato.</div>';
+  html += rows;
+  html += '  <div class="pctsum '+(diff===0?'ok':'warn')+'">Assegnati: '+sumCredits+' / '+total+' cr ('+sumPct+'%) &mdash; '+diffText+(diff!==0?' <button class="btn-mini" onclick="normalizeRolePct()">Normalizza a 100%</button>':'')+'</div>';
+  html += '  <button class="btn btn-line" onclick="autoDistributeRolePct()">Distribuisci automaticamente per posti</button>';
+  html += '</div>';
+  return html;
+}
+
+function buildBackupCard(){
+  var html = '';
+  html += '<div class="section">';
+  html += '  <div class="section-title">Backup dati</div>';
+  html += '  <div class="hint">Il salvataggio è automatico ad ogni acquisto o modifica. Come rete di sicurezza per il giorno dell\'asta, puoi comunque esportare un backup di testo da conservare altrove e reimportare in caso di problemi.</div>';
+  html += '  <button class="btn btn-line" onclick="toggleBackupExport()">'+(showBackupExport?'Nascondi backup':'Esporta backup')+'</button>';
+  if(showBackupExport){
+    html += '  <textarea readonly class="export-area" onclick="this.select()" style="height:110px">'+esc(JSON.stringify({config:state.config, purchases:state.purchases}))+'</textarea>';
+    html += '  <div class="hint">Copia questo testo e conservalo (Note, un messaggio a te stesso). Toccalo per selezionarlo tutto.</div>';
+  }
+  html += '  <button class="btn btn-line" onclick="toggleBackupImport()">'+(showBackupImport?'Annulla ripristino':'Ripristina da backup')+'</button>';
+  if(showBackupImport){
+    html += '  <textarea id="backup-input" class="export-area" style="height:110px" placeholder="Incolla qui il testo del backup"></textarea>';
+    html += '  <button class="btn btn-solid" onclick="restoreBackup()">Ripristina questo backup</button>';
+  }
+  html += '</div>';
+  return html;
+}
+
+function buildSetupTab(){
+  var html = '';
+  html += '<div class="section">';
+  html += '  <div class="section-title">Crediti &amp; dimensione rosa</div>';
+  html += '  <div class="field"><label>Crediti totali</label><input type="number" min="1" value="'+state.config.totalCredits+'" onchange="setTotalCredits(this.value)"></div>';
+  html += '  <div class="field"><label>Giocatori minimi</label><input type="number" min="0" value="'+state.config.minPlayers+'" onchange="setMinPlayers(this.value)"></div>';
+  html += '  <div class="field"><label>Giocatori massimi</label><input type="number" min="0" value="'+state.config.maxPlayers+'" onchange="setMaxPlayers(this.value)"></div>';
+  html += '</div>';
+  html += buildModuloCard();
+  html += buildFormationCard();
+  html += buildRoleBudgetCard();
+  html += buildBackupCard();
+  html += '<div class="section" style="border-left-color:var(--pink)">';
+  html += '  <div class="section-title">Zona rischio</div>';
+  if(confirmResetAll){
+    html += '  <div class="confirm-box">Ripristinare tutto — modulo, budget e rosa acquistata? L\'azione non si può annullare.';
+    html += '    <div class="confirm-actions"><button class="btn btn-danger" onclick="doResetAll()">Sì, ripristina</button><button class="btn btn-line" onclick="cancelResetAll()">Annulla</button></div>';
+    html += '  </div>';
+  } else {
+    html += '  <button class="btn btn-danger-line" onclick="askResetAll()">Ripristina tutto</button>';
+  }
+  html += '</div>';
+  return html;
+}
+
+/* ============================ RENDER: ASTA ============================ */
+function buildAstaTab(){
+  var roleSlots = computeRoleSlots(state.config);
+  var filled = computeFilled(state.purchases);
+  var spent = computeSpent(state.purchases);
+  var b = computeBudgets(state.config);
+
+  var optgroups = '';
+  REPARTI_ORDER.forEach(function(rep){
+    var opts = '';
+    rolesByReparto(rep).filter(function(r){ return (state.config.starters[r.code]||0)>0; }).forEach(function(r){
+      opts += '<option value="'+r.code+'">'+r.code+' — '+esc(r.name)+'</option>';
+    });
+    if(opts) optgroups += '<optgroup label="'+REPARTI[rep].name+'">'+opts+'</optgroup>';
+  });
+
+  var cards = '';
+  REPARTI_ORDER.forEach(function(rep){
+    var roles = rolesByReparto(rep).filter(function(r){ return (state.config.starters[r.code]||0)>0; });
+    if(roles.length===0) return;
+    var repSpent = spent.byReparto[rep];
+    var repBudget = 0;
+    roles.forEach(function(r){ repBudget += b.roleBudget[r.code]; });
+    var repPct = repBudget>0 ? Math.min(100, Math.round(repSpent/repBudget*100)) : (repSpent>0?100:0);
+    var repColor = repSpent>repBudget ? 'var(--pink)' : REPARTI[rep].color;
+
+    var roleRows = '';
+    roles.forEach(function(r){
+      var sl = roleSlots[r.code];
+      var f = filled[r.code];
+      var rSpent = spent.byRole[r.code];
+      var rBudget = b.roleBudget[r.code];
+      var pct = rBudget>0 ? Math.min(100, Math.round(rSpent/rBudget*100)) : (rSpent>0?100:0);
+      var color = rSpent>rBudget ? 'var(--pink)' : REPARTI[rep].color;
+      roleRows += '<div class="rolebar">';
+      roleRows += '  <div class="leader"><span class="leader-label">'+esc(r.name)+'<span class="code">'+r.code+'</span></span><span class="leader-fill"></span><span class="leader-val">'+f.titolare+'/'+sl.starters+' tit &middot; '+f.riserva+'/'+sl.reserves+' ris</span></div>';
+      roleRows += '  <div class="track small"><div class="fill" style="width:'+pct+'%;background:'+color+'"></div></div>';
+      roleRows += '  <div class="rolebar-amt num">'+rSpent+' / '+rBudget+' cr</div>';
+      roleRows += '</div>';
+    });
+
+    cards += '<details class="section" open>';
+    cards += '<summary style="color:'+REPARTI[rep].color+'">'+REPARTI[rep].name+' <span class="amt-tag num">'+repSpent+'/'+repBudget+' cr</span></summary>';
+    cards += '<div class="inner">';
+    cards += '<div class="track"><div class="fill" style="width:'+repPct+'%;background:'+repColor+'"></div></div>';
+    cards += roleRows;
+    cards += '</div></details>';
+  });
+
+  var html = '';
+  html += '<div class="section addform">';
+  html += '  <div class="section-title">Aggiungi giocatore</div>';
+  html += '  <input type="text" id="add-name" placeholder="Nome giocatore" autocomplete="off">';
+  html += '  <div class="addrow">';
+  html += '    <select id="add-role" onchange="onRoleChange()">'+optgroups+'</select>';
+  html += '    <select id="add-slot"><option value="titolare">Titolare</option><option value="riserva">Riserva</option></select>';
+  html += '  </div>';
+  html += '  <div class="addrow">';
+  html += '    <input type="number" id="add-price" min="0" step="1" placeholder="Crediti pagati">';
+  html += '  </div>';
+  html += '  <button class="btn btn-solid" onclick="addPurchase()">Aggiungi</button>';
+  html += '</div>';
+  html += cards;
+  return html;
+}
+
+function onRoleChange(){
+  var roleEl = document.getElementById('add-role');
+  var slotEl = document.getElementById('add-slot');
+  if(!roleEl || !slotEl) return;
+  var code = roleEl.value;
+  var roleSlots = computeRoleSlots(state.config);
+  var filled = computeFilled(state.purchases);
+  var sl = roleSlots[code], f = filled[code];
+  if(sl && f && f.titolare < sl.starters){ slotEl.value = 'titolare'; }
+  else { slotEl.value = 'riserva'; }
+}
+
+function addPurchase(){
+  var nameEl = document.getElementById('add-name');
+  var roleEl = document.getElementById('add-role');
+  var slotEl = document.getElementById('add-slot');
+  var priceEl = document.getElementById('add-price');
+  var name = nameEl.value.trim();
+  var role = roleEl.value;
+  var slot = slotEl.value;
+  var price = parseInt(priceEl.value, 10);
+  if(!name){ showToast('Inserisci il nome del giocatore'); nameEl.focus(); return; }
+  if(isNaN(price) || price<0){ showToast('Inserisci un prezzo valido'); priceEl.focus(); return; }
+  state.purchases.push({
+    id: 'p'+Date.now()+Math.random().toString(36).slice(2,7),
+    name: name, role: role, slot: slot, price: price, ts: Date.now()
+  });
+  savePurchases();
+  renderAll();
+  showToast(name+' aggiunto');
+  setTimeout(function(){ var el=document.getElementById('add-name'); if(el) el.focus(); }, 0);
+}
+
+/* ============================ RENDER: ROSA ============================ */
+function buildPurchaseRow(p){
+  if(editingId===p.id){
+    var optgroups = '';
+    REPARTI_ORDER.forEach(function(rep){
+      var opts = '';
+      rolesByReparto(rep).forEach(function(r){
+        opts += '<option value="'+r.code+'" '+(r.code===p.role?'selected':'')+'>'+r.code+' — '+esc(r.name)+'</option>';
+      });
+      optgroups += '<optgroup label="'+REPARTI[rep].name+'">'+opts+'</optgroup>';
+    });
+    var html = '';
+    html += '<div class="prow editing">';
+    html += '  <input type="text" id="edit-name-'+p.id+'" value="'+esc(p.name)+'">';
+    html += '  <div class="addrow">';
+    html += '    <select id="edit-role-'+p.id+'">'+optgroups+'</select>';
+    html += '    <select id="edit-slot-'+p.id+'">';
+    html += '      <option value="titolare" '+(p.slot==='titolare'?'selected':'')+'>Titolare</option>';
+    html += '      <option value="riserva" '+(p.slot==='riserva'?'selected':'')+'>Riserva</option>';
+    html += '    </select>';
+    html += '  </div>';
+    html += '  <div class="addrow">';
+    html += '    <input type="number" id="edit-price-'+p.id+'" min="0" value="'+p.price+'">';
+    html += '  </div>';
+    html += '  <div class="addrow">';
+    html += '    <button class="btn btn-solid" onclick="saveEdit(\''+p.id+'\')">Salva</button>';
+    html += '    <button class="btn btn-line" onclick="cancelEdit()">Annulla</button>';
+    html += '  </div>';
+    html += '</div>';
+    return html;
+  }
+  var html2 = '';
+  html2 += '<div class="prow">';
+  html2 += '  <div class="prow-main"><span class="code-chip">'+p.role+'</span><span class="name">'+esc(p.name)+'</span><span class="slot-chip '+(p.slot==='titolare'?'tit':'ris')+'">'+(p.slot==='titolare'?'T':'R')+'</span></div>';
+  html2 += '  <div class="prow-right"><span class="prow-price num">'+p.price+' cr</span>';
+  html2 += '    <button class="btn-icon" onclick="startEdit(\''+p.id+'\')">&#9998;</button>';
+  html2 += '    <button class="btn-icon" onclick="deletePurchase(\''+p.id+'\')">&#128465;</button>';
+  html2 += '  </div>';
+  html2 += '</div>';
+  return html2;
+}
+
+function buildExportText(){
+  var spent = computeSpent(state.purchases);
+  var lines = [];
+  lines.push('ROSA FANTACALCIO MANTRA');
+  lines.push('Crediti usati: '+spent.total+'/'+state.config.totalCredits+' (rimasti '+(state.config.totalCredits-spent.total)+')');
+  lines.push('Giocatori: '+state.purchases.length+' (min '+state.config.minPlayers+' - max '+state.config.maxPlayers+')');
+  lines.push('');
+  REPARTI_ORDER.forEach(function(rep){
+    var list = state.purchases.filter(function(p){ var r=roleByCode(p.role); return r && r.reparto===rep; });
+    if(list.length===0) return;
+    lines.push(REPARTI[rep].name.toUpperCase()+' ('+list.length+')');
+    list.forEach(function(p){
+      lines.push('- '+p.name+' ('+p.role+', '+(p.slot==='titolare'?'tit':'ris')+') - '+p.price+' cr');
+    });
+    lines.push('');
+  });
+  return lines.join('\n');
+}
+
+function buildRosaTab(){
+  var spent = computeSpent(state.purchases);
+  var grouped = {};
+  REPARTI_ORDER.forEach(function(rep){ grouped[rep]=[]; });
+  state.purchases.slice().sort(function(a,b){ return b.ts-a.ts; }).forEach(function(p){
+    var r = roleByCode(p.role);
+    if(r) grouped[r.reparto].push(p);
+  });
+
+  var sections = '';
+  REPARTI_ORDER.forEach(function(rep){
+    var list = grouped[rep];
+    if(list.length===0) return;
+    var rows = '';
+    list.forEach(function(p){ rows += buildPurchaseRow(p); });
+    sections += '<details class="section" open>';
+    sections += '<summary style="color:'+REPARTI[rep].color+'">'+REPARTI[rep].name+' <span class="amt-tag num">'+list.length+' &middot; '+spent.byReparto[rep]+' cr</span></summary>';
+    sections += '<div class="inner">'+rows+'</div></details>';
+  });
+  if(sections===''){ sections = '<div class="section hint">Nessun giocatore acquistato ancora. Vai alla scheda Asta per iniziare.</div>'; }
+
+  var html = '';
+  html += '<div class="section">';
+  html += '  <div class="section-title">Rosa acquistata</div>';
+  html += '  <div class="hint">'+state.purchases.length+' giocatori &middot; '+spent.total+' crediti spesi</div>';
+  html += '  <button class="btn btn-line" onclick="toggleExport()">'+(showExport?'Nascondi esportazione':'Esporta lista')+'</button>';
+  if(showExport){
+    html += '  <textarea readonly class="export-area" onclick="this.select()">'+esc(buildExportText())+'</textarea>';
+    html += '  <div class="hint">Tocca il testo per selezionarlo e copiarlo.</div>';
+  }
+  html += '</div>';
+  html += sections;
+  html += '<div class="section" style="border-left-color:var(--pink)">';
+  if(confirmClear){
+    html += '  <div class="confirm-box">Svuotare tutta la rosa acquistata? L\'azione non si può annullare.';
+    html += '    <div class="confirm-actions"><button class="btn btn-danger" onclick="doClearPurchases()">Sì, svuota</button><button class="btn btn-line" onclick="cancelClearPurchases()">Annulla</button></div>';
+    html += '  </div>';
+  } else {
+    html += '  <button class="btn btn-danger-line" onclick="askClearPurchases()">Svuota rosa</button>';
+  }
+  html += '</div>';
+  return html;
+}
+
+/* ============================ MUTAZIONI ============================ */
+function adjustStarter(code, delta){
+  var cur = state.config.starters[code] || 0;
+  var next = Math.max(0, cur+delta);
+  state.config.starters[code] = next;
+  state.config.reserves[code] = reservesFor(next);
+  saveConfig(); renderAll();
+}
+function adjustReserve(code, delta){
+  var cur = (state.config.reserves && state.config.reserves[code]!=null) ? state.config.reserves[code] : 0;
+  state.config.reserves[code] = Math.max(0, cur+delta);
+  saveConfig(); renderAll();
+}
+function setFormation(id){
+  var preset = formationById(id);
+  if(!preset) return;
+  var newStarters = {}, newReserves = {};
+  ROLES.forEach(function(r){
+    var n = preset.starters[r.code] || 0;
+    newStarters[r.code] = n;
+    newReserves[r.code] = reservesFor(n);
+  });
+  state.config.starters = newStarters;
+  state.config.reserves = newReserves;
+  state.config.rolePct = computeDefaultRolePct(newStarters, newReserves);
+  state.config.formationId = id;
+  state.config.visibleRoles = preset.roles.slice();
+  saveConfig(); renderAll(); showToast('Modulo '+preset.label+' impostato');
+}
+function resetFormationDefault(){
+  setFormation(FORMATIONS[0].id);
+}
+function setRolePct(code, val){
+  var v = Math.max(0, Math.min(100, parseInt(val,10)||0));
+  state.config.rolePct[code] = v;
+  saveConfig(); renderAll();
+}
+function normalizeRolePct(){
+  var sum = 0;
+  ROLES.forEach(function(r){ if((state.config.starters[r.code]||0)>0) sum += (state.config.rolePct[r.code]||0); });
+  if(sum===0) return;
+  ROLES.forEach(function(r){
+    if((state.config.starters[r.code]||0)>0){
+      state.config.rolePct[r.code] = Math.round((state.config.rolePct[r.code]||0) * 100 / sum);
+    }
+  });
+  saveConfig(); renderAll(); showToast('Percentuali normalizzate');
+}
+function autoDistributeRolePct(){
+  state.config.rolePct = computeDefaultRolePct(state.config.starters, state.config.reserves);
+  saveConfig(); renderAll(); showToast('Budget ridistribuito in automatico');
+}
+function setTotalCredits(v){
+  state.config.totalCredits = Math.max(1, parseInt(v,10)||0);
+  saveConfig(); renderAll();
+}
+function setMinPlayers(v){
+  state.config.minPlayers = Math.max(0, parseInt(v,10)||0);
+  saveConfig(); renderAll();
+}
+function setMaxPlayers(v){
+  var mv = parseInt(v,10)||0;
+  state.config.maxPlayers = Math.max(state.config.minPlayers, mv);
+  saveConfig(); renderAll();
+}
+
+function startEdit(id){ editingId=id; renderAll(); }
+function cancelEdit(){ editingId=null; renderAll(); }
+function saveEdit(id){
+  var name = document.getElementById('edit-name-'+id).value.trim();
+  var role = document.getElementById('edit-role-'+id).value;
+  var slot = document.getElementById('edit-slot-'+id).value;
+  var price = parseInt(document.getElementById('edit-price-'+id).value, 10);
+  if(!name){ showToast('Inserisci il nome'); return; }
+  if(isNaN(price) || price<0){ showToast('Prezzo non valido'); return; }
+  var p = null;
+  for(var i=0;i<state.purchases.length;i++){ if(state.purchases[i].id===id){ p=state.purchases[i]; break; } }
+  if(p){ p.name=name; p.role=role; p.slot=slot; p.price=price; }
+  editingId = null;
+  savePurchases(); renderAll(); showToast('Modifiche salvate');
+}
+function deletePurchase(id){
+  state.purchases = state.purchases.filter(function(p){ return p.id!==id; });
+  savePurchases(); renderAll(); showToast('Giocatore rimosso');
+}
+
+function toggleExport(){ showExport = !showExport; renderAll(); }
+function toggleBackupExport(){ showBackupExport = !showBackupExport; if(showBackupExport) showBackupImport=false; renderAll(); }
+function toggleBackupImport(){ showBackupImport = !showBackupImport; if(showBackupImport) showBackupExport=false; renderAll(); }
+function restoreBackup(){
+  var el = document.getElementById('backup-input');
+  if(!el) return;
+  var txt = el.value.trim();
+  if(!txt){ showToast('Incolla prima il testo del backup'); return; }
+  var parsed;
+  try{ parsed = JSON.parse(txt); }catch(e){ showToast('Testo non valido, controlla di averlo incollato tutto'); return; }
+  if(!parsed || !parsed.config || !Array.isArray(parsed.purchases)){ showToast('Formato backup non riconosciuto'); return; }
+  var base = defaultConfig();
+  var pc = parsed.config;
+  state.config = Object.assign(base, pc);
+  state.config.starters = Object.assign({}, base.starters, pc.starters || {});
+  state.config.reserves = Object.assign({}, base.reserves, pc.reserves || {});
+  state.config.rolePct = Object.assign({}, base.rolePct, pc.rolePct || {});
+  state.config.visibleRoles = (pc.visibleRoles && pc.visibleRoles.length) ? pc.visibleRoles : base.visibleRoles;
+  state.config.formationId = pc.formationId || base.formationId;
+  state.purchases = parsed.purchases;
+  showBackupImport = false;
+  editingId = null;
+  saveConfig(); savePurchases(); renderAll();
+  showToast('Backup ripristinato');
+}
+
+function askClearPurchases(){ confirmClear=true; renderAll(); }
+function cancelClearPurchases(){ confirmClear=false; renderAll(); }
+function doClearPurchases(){
+  state.purchases = [];
+  confirmClear = false; editingId = null;
+  savePurchases(); renderAll(); showToast('Rosa svuotata');
+}
+
+function askResetAll(){ confirmResetAll=true; renderAll(); }
+function cancelResetAll(){ confirmResetAll=false; renderAll(); }
+function doResetAll(){
+  state = defaultState();
+  confirmResetAll = false; editingId = null; showExport = false;
+  saveConfig(); savePurchases(); renderAll(); switchTab('setup');
+  showToast('Tutto ripristinato');
+}
+
+/* ============================ TAB SWITCH ============================ */
+function switchTab(name){
+  activeTab = name;
+  ['setup','asta','rosa'].forEach(function(n){
+    document.getElementById('tab-'+n).classList.toggle('hidden', n!==name);
+    document.getElementById('tabbtn-'+n).classList.toggle('active', n===name);
+  });
+}
+
+/* ============================ RENDER ALL ============================ */
+function renderAll(){
+  document.getElementById('header-summary').innerHTML = buildHeaderSummary();
+  document.getElementById('tab-setup').innerHTML = buildSetupTab();
+  document.getElementById('tab-asta').innerHTML = buildAstaTab();
+  document.getElementById('tab-rosa').innerHTML = buildRosaTab();
+  onRoleChange();
+}
+
+/* ============================ INIT ============================ */
+document.addEventListener('DOMContentLoaded', function(){
+  renderAll();
+  switchTab(activeTab);
+  loadState();
+});
+</script>
+</body>
+</html>
