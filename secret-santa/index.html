@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#12261c">
+<title>Secret Santa in famiglia</title>
+<style>
+  :root {
+    --bg: #12261c;
+    --bg-2: #1b3a2a;
+    --card: #fbf6ea;
+    --ink: #2a2118;
+    --muted: #7a6c58;
+    --red: #b3261e;
+    --red-dark: #8f1d17;
+    --gold: #d9b45a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: radial-gradient(120% 90% at 50% 0%, var(--bg-2) 0%, var(--bg) 70%);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  }
+  main { width: 100%; max-width: 420px; }
+  .eyebrow {
+    margin: 0 0 4px;
+    text-align: center;
+    color: var(--gold);
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  h1 {
+    margin: 0 0 22px;
+    text-align: center;
+    color: #fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    font-size: 34px;
+    letter-spacing: .01em;
+  }
+  .card {
+    background: var(--card);
+    border-radius: 22px;
+    padding: 30px 24px 26px;
+    text-align: center;
+    box-shadow: 0 18px 40px rgba(0,0,0,.35), inset 0 0 0 1px rgba(217,180,90,.35);
+    animation: rise .5s ease both;
+  }
+  .gift { font-size: 54px; line-height: 1; margin-bottom: 10px; }
+  .hello {
+    margin: 0 0 8px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 26px;
+  }
+  .lead { margin: 0 0 24px; color: var(--muted); font-size: 16px; line-height: 1.45; }
+  button {
+    appearance: none;
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+    border-radius: 14px;
+    padding: 15px 22px;
+    width: 100%;
+    font-size: 17px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .primary { background: var(--red); color: #fff; box-shadow: 0 6px 16px rgba(179,38,30,.35); }
+  .primary:active { background: var(--red-dark); transform: translateY(1px); }
+  .ghost { background: transparent; color: var(--muted); font-weight: 500; font-size: 15px; margin-top: 10px; padding: 10px; }
+  .ghost:active { color: var(--ink); }
+  .to-label { margin: 0 0 6px; color: var(--muted); font-size: 15px; }
+  .to-name {
+    margin: 0 0 20px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 40px;
+    line-height: 1.1;
+    color: var(--red);
+    word-break: break-word;
+    animation: pop .55s cubic-bezier(.2,1.4,.4,1) both;
+  }
+  .budget {
+    display: inline-block;
+    border: 1.5px dashed var(--gold);
+    border-radius: 12px;
+    padding: 10px 18px;
+    margin-bottom: 18px;
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .budget strong { display: block; font-size: 26px; color: var(--ink); font-family: Georgia, "Times New Roman", serif; }
+  .note { margin: 6px 0 0; font-size: 13.5px; color: var(--muted); line-height: 1.45; }
+  .foot { margin: 18px 4px 0; text-align: center; color: rgba(255,255,255,.55); font-size: 12.5px; line-height: 1.45; }
+  [hidden] { display: none !important; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @keyframes pop { from { opacity: 0; transform: scale(.8); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .card, .to-name { animation: none; } }
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Natale 2026</p>
+  <h1>Secret Santa</h1>
+
+  <section class="card" id="view-loading">
+    <div class="gift">🎄</div>
+    <p class="lead" style="margin:0">Carico il tuo abbinamento…</p>
+  </section>
+
+  <section class="card" id="view-intro" hidden>
+    <div class="gift">🎁</div>
+    <p class="hello">Ciao <span id="who"></span>!</p>
+    <p class="lead">Il tuo abbinamento è pronto. Controlla che nessuno stia guardando lo schermo, poi scoprilo.</p>
+    <button class="primary" id="reveal" type="button">Scopri chi hai pescato</button>
+  </section>
+
+  <section class="card" id="view-result" hidden>
+    <p class="to-label">Il tuo regalo è per</p>
+    <p class="to-name" id="target"></p>
+    <div class="budget">Budget massimo<strong id="budget"></strong></div>
+    <p class="note">Tieni il segreto fino a Natale: nessuno deve sapere chi hai pescato.</p>
+    <button class="ghost" id="hide" type="button">Nascondi</button>
+  </section>
+
+  <section class="card" id="view-error" hidden>
+    <div class="gift">🔒</div>
+    <p class="hello">Link non valido</p>
+    <p class="lead" id="error-text" style="margin:0">Apri il link personale che ti è stato inviato, per intero. Se non funziona, chiedine uno nuovo a chi organizza.</p>
+  </section>
+
+  <p class="foot">Questo link è solo tuo: non inoltrarlo e non farlo vedere ad altri.</p>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  var BUDGET = 100;
+  var BLOBS = {
+  "5623b054": "-N2tCeE_v_bfsnFaNTIzg46bX_9JwcXNW5EHoxrF0ZIIKoyah7dcQUOTs4ciPS5N_B73bJ7A_1-Cfs1_Jmw6MbPUW2q-zuB-jawzaQmdEjt4jnbkN-dmk2msWLVbdAEHGQdA37lPKCptf0BHAXR9juaLr1JYKbf6QWYj7Q4U_m7Kb-oNgmDidPu1qDR6grm0n_0khYvlQHzUMvBD967be0J0W15uRL6p4RPgx-RTCbPHnuIfkMlFmtQF8cE",
+  "5c11af15": "zR1DftlNnThoER62iGFBBFsVICU15_0Kdit-5CrPpdwsIXScNkNEpoAMeI3yBy25el-SxAs-99cwcEh4PZnMt55joPBbxt5dAwUkNcFJlCXwgtnrE9IIfAHaKdZsEIdEiJbfWYoQZxp6TrSoCBkDI6L6fQ5aUq6HyGlFToDiwddIlGbVOY7Wnnrk4lmAZl8y3GhnMp-dBVM26FXBi6itLaJiRCQfNbLY8niRCA0BnaKLxIPVsHRIlGNJQDQ",
+  "936b99b7": "vxcULuFLNvGT7zb_8uVU6JLVWEOLLJo6TM-sP4yeJQdXqoKJGxUXaQHAZ1n93csbC67qYhtEhoC6GR7lf7sRyvKZuHwUEERVL4AQpTdHQs8fMKjTXc3ZoUznbDr_lG5bmtnadHSTyYXsuiE1fINF7vSRmKnHf4GB8i_sH4uaWVu__DG7cT1RZbKvoWxYM8zFauGbuTfirsqF2z9YJrazWIxGzbzX3_eu746q6BGrojhZLrNoGAjxDu9t_VQ",
+  "8e285cf7": "ICiQeIEO9d9XSW7_-r-Qu1lnEnGgWr07bRR-xZ0ua-hn1QBqJDStQQX8RwfH7e4lj6COVblnE2awyCAfDqVsXvYEC2ijZ9WuhnyMSD83kJS4sXCgyWzPskrlwk4PJ9agxKXmnmdRb8aBIQ_gsCF6YdbyDd9xNTIpaZfjpFv5oAYjthnIuqqfHEoAXedVxPNV3JCWRU8CuDjZnFadjy5TuWQhNLa4WmMzD0sJud9FWRXC5u-cO21FeBkq1C0",
+  "45a44946": "5Bthm6zOtomN4NvFBT47WUL1kwcf2PkrccK1Vz-Fxj2W9iYLQMN7j8FOZR2-lY7LA3PrlMwWMk1u9oqV_gHv2Wiu0eZKjesDdQt3IBzNJZbcLB3m4OPeKm6JvvUNdrTfk-N41cWdhPus51KZ0sHbX3f7ru10yDdPKkOog7pcW2Is8EVNTQ_uveFXQ7GONSvAUem54Sy63R2anKEeyrvy0Dh4vnqDY0-QIlVomDCFCPtdpYGfnfY-LfwDXUM",
+  "23268f9b": "c50uovn9z8zacnKQiEtb_441-mneh2vMbsRMBFr7428oSJ98jYD7rq2il5QBVAbdbg61Vkuf8UsOT1IYv04VAZHrA_MS3x3wcACnYAH155aUDLTkmCcxnGIepOhctkcYYgwMOnVL_Rs3rxGA4SHBVIQ4jctGpaKx2CrB1dbIPAJB07V73Jq92FIHRZahZWq_fhHbukYfTL4hjwkMUzmrkSN8-bZehmhmz0gPqz-BTvpT75UR__Em1-3HoQc"
+};
+
+  var $ = function (id) { return document.getElementById(id); };
+  var views = ["loading", "intro", "result", "error"];
+  function show(name) {
+    views.forEach(function (v) { $("view-" + v).hidden = (v !== name); });
+  }
+  function fail(msg) {
+    if (msg) $("error-text").textContent = msg;
+    show("error");
+  }
+
+  function b64u(s) {
+    s = s.replace(/-/g, "+").replace(/_/g, "/");
+    while (s.length % 4) s += "=";
+    var bin = atob(s), out = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+    return out;
+  }
+
+  var current = null;
+
+  async function load() {
+    current = null;
+    show("loading");
+    var parts = location.hash.replace(/^#/, "").split(".");
+    var id = parts[0], key = parts[1];
+    if (!id || !key || !Object.prototype.hasOwnProperty.call(BLOBS, id)) return fail();
+    if (!window.crypto || !window.crypto.subtle) {
+      return fail("Il tuo browser non riesce ad aprire il link. Provalo da Safari o Chrome.");
+    }
+    try {
+      var raw = b64u(BLOBS[id]);
+      var k = await crypto.subtle.importKey("raw", b64u(key), "AES-GCM", false, ["decrypt"]);
+      var buf = await crypto.subtle.decrypt({ name: "AES-GCM", iv: raw.slice(0, 12) }, k, raw.slice(12));
+      var data = JSON.parse(new TextDecoder().decode(buf));
+      if (!data || !data.da || !data.a) return fail();
+      current = data;
+      $("who").textContent = data.da;
+      show("intro");
+    } catch (e) {
+      fail();
+    }
+  }
+
+  $("reveal").addEventListener("click", function () {
+    if (!current) return;
+    $("target").textContent = current.a;
+    $("budget").textContent = BUDGET + " €";
+    show("result");
+  });
+  $("hide").addEventListener("click", function () {
+    $("target").textContent = "";
+    show("intro");
+  });
+  window.addEventListener("hashchange", load);
+  load();
+})();
+</script>
+</body>
+</html>
